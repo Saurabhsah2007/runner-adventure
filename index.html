@@ -1,1 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Runner Adventure</title>
+
+<meta name="description"
+content="Runner Adventure - an original tropical jungle endless runner adventure.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07100a;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:rgba(4,10,7,.72);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#d8ff39;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+}
+
+.nav-links a{
+    font-size:13px;
+    font-weight:700;
+    color:rgba(255,255,255,.75);
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#d8ff39;
+}
+
+.nav-cta{
+    padding:12px 20px;
+    border-radius:30px;
+
+    background:#d8ff39;
+    color:#111 !important;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:130px 7% 100px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2,9,5,.96) 0%,
+            rgba(2,9,5,.82) 34%,
+            rgba(2,9,5,.40) 65%,
+            rgba(2,9,5,.65) 100%
+        ),
+        linear-gradient(
+            180deg,
+            #193c1c 0%,
+            #102914 50%,
+            #06100a 100%
+        );
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(119,177,72,.28),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(29,100,53,.30),
+            transparent 35%
+        );
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:180px;
+
+    background:linear-gradient(
+        transparent,
+        #07100a
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+}
+
+.hero-tag{
+    display:inline-block;
+
+    padding:9px 16px;
+    margin-bottom:24px;
+
+    border:1px solid rgba(216,255,57,.45);
+    border-radius:30px;
+
+    background:rgba(216,255,57,.08);
+
+    color:#d8ff39;
+
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.hero h1{
+    font-size:clamp(60px,9vw,118px);
+    line-height:.86;
+    letter-spacing:-6px;
+    font-weight:1000;
+
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    color:#d8ff39;
+}
+
+.hero-text{
+    max-width:570px;
+
+    color:rgba(255,255,255,.72);
+
+    font-size:17px;
+    line-height:1.7;
+
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:15px 25px;
+
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:900;
+
+    transition:.25s;
+}
+
+.btn-primary{
+    background:#d8ff39;
+    color:#111;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(216,255,57,.2);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.06);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.13);
+    transform:translateY(-3px);
+}
+
+/* ================= GENERAL ================= */
+
+section{
+    padding:110px 7%;
+}
+
+.label{
+    color:#d8ff39;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.title{
+    font-size:clamp(38px,5vw,64px);
+    line-height:.98;
+    letter-spacing:-3px;
+    margin-bottom:20px;
+}
+
+.description{
+    max-width:650px;
+    color:rgba(255,255,255,.58);
+    font-size:16px;
+    line-height:1.75;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    background:#07100a;
+}
+
+.feature-grid{
+    margin-top:55px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.feature-card{
+    min-height:210px;
+
+    padding:30px;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(216,255,57,.35);
+}
+
+.icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:20px;
+
+    border-radius:13px;
+
+    background:rgba(216,255,57,.10);
+
+    font-size:22px;
+}
+
+.feature-card h3{
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+.feature-card p{
+    color:rgba(255,255,255,.55);
+    font-size:14px;
+    line-height:1.65;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(62,126,62,.16),
+            transparent 35%
+        ),
+        #09140d;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-panel{
+    min-height:320px;
+
+    padding:40px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(216,255,57,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(216,255,57,.15);
+}
+
+.about-panel h3{
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.about-panel p{
+    color:rgba(255,255,255,.62);
+    line-height:1.8;
+}
+
+/* ================= WORLDS ================= */
+
+.worlds{
+    background:#07100a;
+}
+
+.world-grid{
+    margin-top:55px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.world{
+    min-height:310px;
+
+    position:relative;
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:25px;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.04),
+            rgba(0,0,0,.8)
+        );
+
+    transition:.3s;
+}
+
+.world:hover{
+    transform:translateY(-6px);
+}
+
+.world:nth-child(1){
+    background:
+        linear-gradient(
+            180deg,
+            rgba(12,60,26,.15),
+            rgba(4,15,7,.95)
+        );
+}
+
+.world:nth-child(2){
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17,92,115,.20),
+            rgba(3,17,22,.95)
+        );
+}
+
+.world:nth-child(3){
+    background:
+        linear-gradient(
+            180deg,
+            rgba(143,65,27,.22),
+            rgba(29,10,5,.95)
+        );
+}
+
+.world:nth-child(4){
+    background:
+        linear-gradient(
+            180deg,
+            rgba(137,171,192,.20),
+            rgba(11,21,28,.95)
+        );
+}
+
+.world-content{
+    position:relative;
+    z-index:2;
+}
+
+.world h3{
+    font-size:23px;
+    margin-bottom:7px;
+}
+
+.world p{
+    color:rgba(255,255,255,.55);
+    font-size:13px;
+}
+
+/* ================= GAME CTA ================= */
+
+.game{
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216,255,57,.12),
+            transparent 45%
+        ),
+        #09140d;
+}
+
+.game .description{
+    margin:0 auto 30px;
+}
+
+.game-button{
+    display:inline-block;
+
+    padding:14px 25px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(216,255,57,.35);
+
+    color:#d8ff39;
+
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 7%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:rgba(255,255,255,.4);
+
+    font-size:12px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .world-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:0 5%;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .hero{
+        padding:130px 5% 90px;
+    }
+
+    .hero h1{
+        font-size:60px;
+        letter-spacing:-4px;
+    }
+
+    .hero-text{
+        font-size:15px;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .world-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-panel{
+        padding:28px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:12px;
+        text-align:center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="#home" class="logo">
+        RUNNER <span>ADVENTURE</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#home">HOME</a>
+        <a href="#features">FEATURES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#worlds">WORLDS</a>
+
+        <a href="#game" class="nav-cta">
+            COMING SOON
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            ORIGINAL MOBILE ENDLESS RUNNER
+        </div>
+
+        <h1>
+            RUNNER<br>
+            <span>ADVENTURE</span>
+        </h1>
+
+        <p class="hero-text">
+            Enter a mysterious tropical jungle and begin an endless
+            adventure filled with fast movement, dangerous obstacles,
+            collectible coins, power-ups and challenging missions.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#game" class="btn btn-primary">
+                PLAY SOON
+            </a>
+
+            <a href="#features" class="btn btn-secondary">
+                EXPLORE GAME
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+    <div class="label">
+        GAME FEATURES
+    </div>
+
+    <h2 class="title">
+        Built for the<br>
+        ultimate run.
+    </h2>
+
+    <p class="description">
+        Runner Adventure combines fast reactions, exploration,
+        collectibles and progression into one original endless
+        runner experience.
+    </p>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="icon">🏃</div>
+
+            <h3>3-Lane Running</h3>
+
+            <p>
+                Move between three lanes and react quickly to
+                changing obstacles.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">🪙</div>
+
+            <h3>Collect Coins</h3>
+
+            <p>
+                Collect coins throughout your run and build
+                your score.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">🌴</div>
+
+            <h3>Tropical Jungle</h3>
+
+            <p>
+                Run through a mysterious tropical environment
+                filled with natural hazards.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">⚡</div>
+
+            <h3>Power-Ups</h3>
+
+            <p>
+                Discover powerful abilities that help you
+                survive longer.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">🎯</div>
+
+            <h3>Missions</h3>
+
+            <p>
+                Complete missions that become progressively
+                more challenging.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">🏆</div>
+
+            <h3>Progression</h3>
+
+            <p>
+                Keep running, complete objectives and unlock
+                future adventures.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-grid">
+
+        <div>
+
+            <div class="label">
+                ABOUT THE GAME
+            </div>
+
+            <h2 class="title">
+                Your run.<br>
+                Your adventure.
+            </h2>
+
+            <p class="description">
+                Runner Adventure is an original mobile endless
+                runner created around fast movement, exploration,
+                obstacles, collectibles and progression.
+            </p>
+
+        </div>
+
+
+        <div class="about-panel">
+
+            <h3>
+                Explore.<br>
+                Run.<br>
+                Survive.
+            </h3>
+
+            <p>
+                Start in the tropical jungle and push your run
+                farther while discovering new challenges and
+                future worlds.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WORLDS -->
+
+<section class="worlds" id="worlds">
+
+    <div class="label">
+        FUTURE WORLDS
+    </div>
+
+    <h2 class="title">
+        The adventure<br>
+        continues.
+    </h2>
+
+    <p class="description">
+        The journey will eventually expand into completely
+        new environments and challenges.
+    </p>
+
+
+    <div class="world-grid">
+
+        <div class="world">
+
+            <div class="world-content">
+
+                <h3>🌴 Jungle</h3>
+
+                <p>
+                    The beginning of the adventure.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="world">
+
+            <div class="world-content">
+
+                <h3>🌊 River</h3>
+
+                <p>
+                    Fast paths around water.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="world">
+
+            <div class="world-content">
+
+                <h3>🌋 Volcano</h3>
+
+                <p>
+                    A dangerous new challenge.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="world">
+
+            <div class="world-content">
+
+                <h3>❄️ Frozen Mountains</h3>
+
+                <p>
+                    A completely different world.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GAME -->
+
+<section class="game" id="game">
+
+    <div class="label">
+        RUNNER ADVENTURE
+    </div>
+
+    <h2 class="title">
+        The adventure<br>
+        is coming.
+    </h2>
+
+    <p class="description">
+        The game is currently in development.
+        Stay tuned for the official release.
+    </p>
+
+    <div class="game-button">
+        COMING SOON
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026 Runner Adventure
+    </div>
+
+    <div>
+        ORIGINAL MOBILE GAME
+    </div>
+
+</footer>
+
+</body>
+</html>
