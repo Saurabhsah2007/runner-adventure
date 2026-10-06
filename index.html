@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Runner Adventure - An original tropical jungle endless runner adventure game.">
+          content="Runner Adventure - An original 2D jungle endless runner adventure game.">
 
     <meta name="keywords"
-          content="Runner Adventure, endless runner, jungle adventure, mobile game">
+          content="Runner Adventure, 2D runner game, jungle game, endless runner, mobile game">
 
     <meta name="author" content="Runner Adventure">
 
@@ -42,8 +41,10 @@
             position: fixed;
             top: 0;
             left: 0;
+
             width: 100%;
             height: 76px;
+
             z-index: 1000;
 
             display: flex;
@@ -52,18 +53,24 @@
 
             padding: 0 6%;
 
-            background: rgba(3, 14, 9, 0.78);
+            background: rgba(3, 14, 9, 0.82);
+
             backdrop-filter: blur(12px);
 
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom:
+                1px solid rgba(255,255,255,0.08);
         }
 
         .logo {
+            color: #d8ff3e;
+
+            text-decoration: none;
+
             font-size: 22px;
             font-weight: 900;
+
             letter-spacing: 2px;
-            color: #d8ff3e;
-            text-decoration: none;
+
             white-space: nowrap;
         }
 
@@ -75,9 +82,12 @@
 
         .nav-links a {
             color: #ffffff;
+
             text-decoration: none;
+
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
+
             transition: 0.3s;
         }
 
@@ -86,18 +96,19 @@
         }
 
         .nav-button {
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 13px 21px;
+
+            border-radius: 9px;
 
             background: #d8ff3e;
+
             color: #071209 !important;
 
-            font-weight: 800 !important;
+            font-weight: 900 !important;
         }
 
         .nav-button:hover {
             background: #ffffff;
-            color: #071209 !important;
         }
 
         /* =========================
@@ -106,46 +117,58 @@
 
         .hero {
             min-height: 100vh;
+
             position: relative;
 
             display: flex;
             align-items: center;
 
-            padding: 120px 7% 80px;
+            padding:
+                120px 7%
+                90px;
 
             background-image:
+
                 linear-gradient(
                     90deg,
-                    rgba(2,12,7,0.96) 0%,
-                    rgba(2,12,7,0.82) 28%,
-                    rgba(2,12,7,0.35) 60%,
-                    rgba(2,12,7,0.15) 100%
+                    rgba(2,12,7,0.97) 0%,
+                    rgba(2,12,7,0.88) 25%,
+                    rgba(2,12,7,0.48) 55%,
+                    rgba(2,12,7,0.12) 100%
                 ),
-                url("hero-jungle.png");
+
+                url("hero-2d.png");
 
             background-size: cover;
+
             background-position: center;
+
             background-repeat: no-repeat;
         }
 
         .hero::after {
             content: "";
+
             position: absolute;
+
             left: 0;
             bottom: 0;
-            width: 100%;
-            height: 180px;
 
-            background: linear-gradient(
-                transparent,
-                #06130d
-            );
+            width: 100%;
+            height: 190px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    #06130d
+                );
 
             pointer-events: none;
         }
 
         .hero-content {
             position: relative;
+
             z-index: 2;
 
             max-width: 650px;
@@ -155,23 +178,34 @@
             display: inline-block;
 
             margin-bottom: 22px;
-            padding: 8px 15px;
 
-            border: 1px solid rgba(216,255,62,0.5);
+            padding: 9px 17px;
+
+            border:
+                1px solid rgba(216,255,62,0.55);
+
             border-radius: 50px;
 
             color: #d8ff3e;
-            background: rgba(216,255,62,0.08);
+
+            background:
+                rgba(216,255,62,0.08);
 
             font-size: 12px;
-            font-weight: 800;
+
+            font-weight: 900;
+
             letter-spacing: 2px;
         }
 
         .hero h1 {
-            font-size: clamp(52px, 8vw, 105px);
-            line-height: 0.9;
+            font-size:
+                clamp(52px, 8vw, 105px);
+
+            line-height: 0.88;
+
             font-weight: 1000;
+
             letter-spacing: -4px;
 
             margin-bottom: 28px;
@@ -179,7 +213,7 @@
             color: #ffffff;
 
             text-shadow:
-                0 5px 30px rgba(0,0,0,0.65);
+                0 5px 30px rgba(0,0,0,0.7);
         }
 
         .hero h1 span {
@@ -187,28 +221,34 @@
         }
 
         .hero-description {
-            max-width: 560px;
+            max-width: 570px;
 
             font-size: 18px;
+
             line-height: 1.7;
 
-            color: rgba(255,255,255,0.82);
+            color:
+                rgba(255,255,255,0.84);
 
             margin-bottom: 34px;
         }
 
         .hero-buttons {
             display: flex;
+
             gap: 15px;
+
             flex-wrap: wrap;
         }
 
         .button {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
-            min-width: 155px;
+            min-width: 160px;
+
             padding: 15px 25px;
 
             border-radius: 8px;
@@ -216,6 +256,7 @@
             text-decoration: none;
 
             font-size: 14px;
+
             font-weight: 900;
 
             transition: 0.3s;
@@ -223,28 +264,37 @@
 
         .button-primary {
             background: #d8ff3e;
+
             color: #071209;
         }
 
         .button-primary:hover {
-            transform: translateY(-3px);
             background: #ffffff;
+
+            transform: translateY(-3px);
         }
 
         .button-secondary {
             color: #ffffff;
-            border: 1px solid rgba(255,255,255,0.35);
-            background: rgba(0,0,0,0.25);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.35);
+
+            background:
+                rgba(0,0,0,0.25);
         }
 
         .button-secondary:hover {
-            transform: translateY(-3px);
-            border-color: #d8ff3e;
             color: #d8ff3e;
+
+            border-color: #d8ff3e;
+
+            transform: translateY(-3px);
         }
 
         /* =========================
-           SECTION COMMON
+           COMMON SECTION
         ========================= */
 
         .section {
@@ -252,31 +302,39 @@
         }
 
         .section-title {
-            max-width: 700px;
-            margin: 0 auto 60px;
+            max-width: 720px;
+
+            margin:
+                0 auto 60px;
+
             text-align: center;
         }
 
         .section-title small {
             color: #d8ff3e;
+
             font-size: 12px;
+
             font-weight: 900;
+
             letter-spacing: 3px;
         }
 
         .section-title h2 {
-            margin-top: 12px;
+            margin-top: 13px;
 
-            font-size: clamp(36px, 5vw, 60px);
+            font-size:
+                clamp(36px, 5vw, 60px);
+
             line-height: 1;
-
-            color: #ffffff;
         }
 
         .section-title p {
             margin-top: 20px;
 
-            color: rgba(255,255,255,0.65);
+            color:
+                rgba(255,255,255,0.65);
+
             line-height: 1.7;
         }
 
@@ -295,21 +353,22 @@
         }
 
         .features-grid {
+            max-width: 1250px;
+
+            margin: auto;
+
             display: grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
             gap: 22px;
-
-            max-width: 1250px;
-            margin: auto;
         }
 
         .feature-card {
-            padding: 32px;
-
             min-height: 220px;
+
+            padding: 32px;
 
             border-radius: 18px;
 
@@ -320,7 +379,9 @@
                     rgba(255,255,255,0.025)
                 );
 
-            border: 1px solid rgba(255,255,255,0.09);
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
 
             transition: 0.35s;
         }
@@ -344,12 +405,14 @@
             height: 54px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 14px;
 
-            background: rgba(216,255,62,0.12);
+            background:
+                rgba(216,255,62,0.12);
 
             color: #d8ff3e;
 
@@ -360,12 +423,16 @@
 
         .feature-card h3 {
             font-size: 20px;
+
             margin-bottom: 12px;
         }
 
         .feature-card p {
-            color: rgba(255,255,255,0.62);
+            color:
+                rgba(255,255,255,0.62);
+
             line-height: 1.65;
+
             font-size: 14px;
         }
 
@@ -379,10 +446,13 @@
 
         .about-container {
             max-width: 1200px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
 
             gap: 70px;
 
@@ -394,41 +464,50 @@
 
             border-radius: 24px;
 
-            background:
+            background-image:
                 linear-gradient(
-                    rgba(0,0,0,0.15),
-                    rgba(0,0,0,0.55)
+                    rgba(0,0,0,0.12),
+                    rgba(0,0,0,0.58)
                 ),
-                url("hero-jungle.png");
+                url("hero-2d.png");
 
             background-size: cover;
+
             background-position: center;
 
-            border: 1px solid rgba(255,255,255,0.10);
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
 
             box-shadow:
-                0 25px 80px rgba(0,0,0,0.4);
+                0 25px 80px
+                rgba(0,0,0,0.4);
         }
 
         .about-content small {
             color: #d8ff3e;
 
             font-size: 12px;
+
             font-weight: 900;
+
             letter-spacing: 3px;
         }
 
         .about-content h2 {
             margin-top: 15px;
+
             margin-bottom: 25px;
 
-            font-size: clamp(35px, 5vw, 58px);
+            font-size:
+                clamp(35px, 5vw, 58px);
 
             line-height: 1;
         }
 
         .about-content p {
-            color: rgba(255,255,255,0.68);
+            color:
+                rgba(255,255,255,0.68);
 
             line-height: 1.8;
 
@@ -437,13 +516,15 @@
 
         .about-list {
             list-style: none;
+
             margin-top: 25px;
         }
 
         .about-list li {
             margin-bottom: 15px;
 
-            color: rgba(255,255,255,0.82);
+            color:
+                rgba(255,255,255,0.82);
         }
 
         .about-list li::before {
@@ -466,6 +547,7 @@
 
         .worlds-grid {
             max-width: 1250px;
+
             margin: auto;
 
             display: grid;
@@ -482,6 +564,7 @@
             position: relative;
 
             display: flex;
+
             align-items: flex-end;
 
             overflow: hidden;
@@ -500,19 +583,25 @@
                     #07150c
                 );
 
-            border: 1px solid rgba(255,255,255,0.08);
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
 
             transition: 0.35s;
         }
 
         .world-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(216,255,62,0.4);
+
+            border-color:
+                rgba(216,255,62,0.4);
         }
 
         .world-content {
             padding: 25px;
+
             position: relative;
+
             z-index: 2;
         }
 
@@ -520,19 +609,23 @@
             color: #d8ff3e;
 
             font-size: 11px;
+
             font-weight: 900;
+
             letter-spacing: 2px;
         }
 
         .world-content h3 {
             font-size: 25px;
+
             margin-top: 8px;
         }
 
         .world-content p {
             margin-top: 8px;
 
-            color: rgba(255,255,255,0.60);
+            color:
+                rgba(255,255,255,0.60);
 
             font-size: 13px;
         }
@@ -547,11 +640,13 @@
 
             border-radius: 5px;
 
-            background: rgba(216,255,62,0.12);
+            background:
+                rgba(216,255,62,0.12);
 
             color: #d8ff3e;
 
             font-size: 9px;
+
             font-weight: 900;
 
             letter-spacing: 1px;
@@ -566,19 +661,21 @@
 
             text-align: center;
 
-            background:
+            background-image:
                 linear-gradient(
-                    rgba(3,15,9,0.85),
+                    rgba(3,15,9,0.88),
                     rgba(3,15,9,0.96)
                 ),
-                url("hero-jungle.png");
+                url("hero-2d.png");
 
             background-size: cover;
+
             background-position: center;
         }
 
         .cta-container {
             max-width: 850px;
+
             margin: auto;
         }
 
@@ -586,6 +683,7 @@
             color: #d8ff3e;
 
             font-size: 12px;
+
             font-weight: 900;
 
             letter-spacing: 3px;
@@ -594,7 +692,8 @@
         .cta-container h2 {
             margin-top: 15px;
 
-            font-size: clamp(40px, 6vw, 75px);
+            font-size:
+                clamp(40px, 6vw, 75px);
 
             line-height: 0.95;
         }
@@ -602,9 +701,11 @@
         .cta-container p {
             max-width: 650px;
 
-            margin: 25px auto 35px;
+            margin:
+                25px auto 35px;
 
-            color: rgba(255,255,255,0.65);
+            color:
+                rgba(255,255,255,0.65);
 
             line-height: 1.7;
         }
@@ -618,10 +719,14 @@
 
             background: #030b07;
 
-            border-top: 1px solid rgba(255,255,255,0.07);
+            border-top:
+                1px solid
+                rgba(255,255,255,0.07);
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
@@ -631,19 +736,21 @@
             color: #d8ff3e;
 
             font-size: 16px;
+
             font-weight: 900;
 
             letter-spacing: 2px;
         }
 
         .footer-text {
-            color: rgba(255,255,255,0.45);
+            color:
+                rgba(255,255,255,0.45);
 
             font-size: 12px;
         }
 
         /* =========================
-           MOBILE
+           TABLET
         ========================= */
 
         @media (max-width: 1000px) {
@@ -667,10 +774,15 @@
             }
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 760px) {
 
             .navbar {
                 height: 68px;
+
                 padding: 0 5%;
             }
 
@@ -695,6 +807,7 @@
 
             .hero h1 {
                 font-size: 58px;
+
                 letter-spacing: -2px;
             }
 
@@ -720,9 +833,14 @@
 
             footer {
                 flex-direction: column;
+
                 text-align: center;
             }
         }
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
 
         @media (max-width: 450px) {
 
@@ -760,15 +878,24 @@
 
         <nav class="nav-links">
 
-            <a href="#home">Home</a>
+            <a href="#home">
+                Home
+            </a>
 
-            <a href="#features">Features</a>
+            <a href="#features">
+                Features
+            </a>
 
-            <a href="#about">About</a>
+            <a href="#about">
+                About
+            </a>
 
-            <a href="#worlds">Worlds</a>
+            <a href="#worlds">
+                Worlds
+            </a>
 
-            <a href="#coming-soon" class="nav-button">
+            <a href="#coming-soon"
+               class="nav-button">
                 COMING SOON
             </a>
 
@@ -786,7 +913,7 @@
         <div class="hero-content">
 
             <div class="hero-tag">
-                ORIGINAL JUNGLE ADVENTURE
+                ORIGINAL 2D JUNGLE ADVENTURE
             </div>
 
             <h1>
@@ -795,10 +922,10 @@
             </h1>
 
             <p class="hero-description">
-                Run through a mysterious tropical world,
+                Run through a mysterious tropical jungle,
                 dodge dangerous obstacles, collect coins,
                 discover powerful abilities and push your
-                limits in an endless adventure.
+                limits in an exciting 2D endless adventure.
             </p>
 
             <div class="hero-buttons">
@@ -829,15 +956,18 @@
 
         <div class="section-title">
 
-            <small>GAME FEATURES</small>
+            <small>
+                GAME FEATURES
+            </small>
 
             <h2>
                 RUN. DODGE. SURVIVE.
             </h2>
 
             <p>
-                Runner Adventure combines fast endless-running
-                gameplay with an original tropical jungle world.
+                Runner Adventure brings fast,
+                exciting 2D endless-runner gameplay
+                into an original tropical jungle world.
             </p>
 
         </div>
@@ -876,7 +1006,7 @@
 
                 <p>
                     Switch between three lanes, react quickly
-                    and find the safest route ahead.
+                    and choose the safest route ahead.
                 </p>
 
             </div>
@@ -893,8 +1023,8 @@
                 </h3>
 
                 <p>
-                    Collect coins during your run and build
-                    your score as you travel deeper into the jungle.
+                    Collect coins during every run and
+                    increase your score as you progress.
                 </p>
 
             </div>
@@ -911,8 +1041,8 @@
                 </h3>
 
                 <p>
-                    Discover useful abilities that can help
-                    you survive longer and collect more rewards.
+                    Discover useful power-ups that can
+                    help you survive longer and collect rewards.
                 </p>
 
             </div>
@@ -929,8 +1059,8 @@
                 </h3>
 
                 <p>
-                    Complete missions that become progressively
-                    harder as your adventure continues.
+                    Complete missions that gradually become
+                    more challenging as you progress.
                 </p>
 
             </div>
@@ -947,8 +1077,8 @@
                 </h3>
 
                 <p>
-                    Explore a mysterious tropical environment
-                    filled with trees, rocks, waterfalls and obstacles.
+                    Explore a mysterious tropical jungle
+                    filled with obstacles, trees, rocks and waterfalls.
                 </p>
 
             </div>
@@ -972,7 +1102,9 @@
 
             <div class="about-content">
 
-                <small>ABOUT THE GAME</small>
+                <small>
+                    ABOUT THE GAME
+                </small>
 
                 <h2>
                     YOUR ADVENTURE
@@ -980,22 +1112,22 @@
                 </h2>
 
                 <p>
-                    Runner Adventure is an original endless
-                    runner experience built around speed,
-                    exploration and quick decisions.
+                    Runner Adventure is an original 2D
+                    endless-runner game focused on speed,
+                    quick decisions and exploration.
                 </p>
 
                 <p>
-                    The journey begins in a mysterious tropical
-                    jungle and will eventually expand into
-                    completely new worlds.
+                    The adventure begins in a mysterious
+                    tropical jungle and will expand into
+                    new worlds in the future.
                 </p>
 
 
                 <ul class="about-list">
 
                     <li>
-                        Original 3D adventure experience
+                        Original 2D adventure experience
                     </li>
 
                     <li>
@@ -1032,7 +1164,9 @@
 
         <div class="section-title">
 
-            <small>THE ADVENTURE WILL GROW</small>
+            <small>
+                THE ADVENTURE WILL GROW
+            </small>
 
             <h2>
                 MORE WORLDS AHEAD
@@ -1159,7 +1293,7 @@
 
 
     <!-- =========================
-         CTA
+         FINAL CTA
     ========================= -->
 
     <section class="cta-section"
